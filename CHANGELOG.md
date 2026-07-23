@@ -19,6 +19,11 @@ Covers all releases, milestones, and significant changes from project inception.
 ## [Unreleased]
 
 ### Added
+- Logging system (NODE-0005 / TASK-0006)
+  - LogContext: MDC-based structured logging context manager (requestId, traceId, agentId, sessionId)
+  - LogMarkers: SLF4J markers for log categorization (SECURITY, AUDIT, AGENT, TOOL, WORKFLOW, MEMORY, MCP, PERFORMANCE, FATAL)
+  - logback-spring.xml: Default logging configuration with structured format, rolling files, security/audit separation
+  - Unit tests for LogContext and LogMarkers
 - Dependency management consolidation (NODE-0004 / TASK-0004)
   - Added jackson-annotations, ollama4j to parent POM dependencyManagement
   - Added PostgreSQL + MyBatis-Plus + Redisson to aiagent-memory module
