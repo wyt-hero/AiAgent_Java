@@ -19,6 +19,23 @@ Covers all releases, milestones, and significant changes from project inception.
 ## [Unreleased]
 
 ### Added
+- Agent Kernel Batch 2 (NODE-0013~0016 / TASK-0013~0016):
+  - AgentResult: Execution result record with success/failure factory methods
+  - AgentStep: Individual step record (THINK/ACT/OBSERVE phases)
+  - AgentConfig: Agent configuration record with Builder pattern
+  - AgentLifecycle: Lifecycle hooks interface with state transition validation
+  - DefaultAgentLifecycle: Default logging-based lifecycle implementation
+  - AgentEvent: Sealed interface for all agent events (7 event types)
+  - AgentEventListener: Event listener interface with type filtering
+  - EventBus: Thread-safe event distribution with CopyOnWriteArrayList
+  - Unit tests for all components
+- RFC-0001-C01: AIOS Runtime Specification document
+- Agent Kernel Batch 1 (NODE-0011~0012 / TASK-0011~0012):
+  - AgentState: Agent lifecycle state enum (IDLE, RUNNING, COMPLETED, FAILED, CANCELLED)
+  - AgentContext: Immutable execution context record with Builder pattern
+  - Agent: Core agent contract interface
+  - AgentExecutor: Execution interface with sync/async support
+  - Unit tests for all components
 - ADR system (NODE-0009 / TASK-0010): ADR template, index, ADR-0001, AdrRecord, AdrStatus, AdrRegistry, tests
 - Code style enforcement (NODE-0010 / TASK-0005): .editorconfig, CodeStyleValidator, naming validators, tests
 - API specification (NODE-0008 / TASK-0009): API_SPECIFICATION.md, ApiResponse, PageResponse, GlobalExceptionHandler, tests
