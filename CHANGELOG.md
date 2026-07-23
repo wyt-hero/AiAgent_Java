@@ -19,6 +19,15 @@ Covers all releases, milestones, and significant changes from project inception.
 ## [Unreleased]
 
 ### Added
+- Agent Kernel Batch 4: Hooks, Registry (NODE-0018~0019 / TASK-0018~0019)
+  - AgentHook: Hook interface with beforeXxx/afterXxx callbacks and priority ordering
+  - HookRegistry: Hook registration with sorted invocation by order
+  - AgentDescriptor: Immutable agent metadata record with withActive/withMetadata
+  - AgentRegistry: Thread-safe ConcurrentHashMap-based agent registry
+  - Unit tests for all components
+- Agent Kernel Batch 3: Execution Loop (NODE-0017 / TASK-0017)
+  - DefaultAgentExecutor: Think-act-observe execution loop with max iterations and timeout
+  - Unit tests for execution loop
 - Agent Kernel Batch 2 (NODE-0013~0016 / TASK-0013~0016):
   - AgentResult: Execution result record with success/failure factory methods
   - AgentStep: Individual step record (THINK/ACT/OBSERVE phases)
