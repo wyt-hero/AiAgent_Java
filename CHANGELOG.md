@@ -19,6 +19,12 @@ Covers all releases, milestones, and significant changes from project inception.
 ## [Unreleased]
 
 ### Added
+- API specification and exception handling (NODE-0008 / TASK-0009)
+  - API_SPECIFICATION.md: Formal API specification document with response envelope, exception mapping, URL conventions
+  - ApiResponse<T>: API-layer standard response wrapper with OpenAPI annotations
+  - PageResponse<T>: API-layer paginated response with pagination metadata
+  - GlobalExceptionHandler: @ControllerAdvice mapping all framework exceptions to HTTP responses
+  - Comprehensive unit tests for all API components
 - Unified result framework (NODE-0007 / TASK-0008)
   - Enhanced Result<T> with ErrorCode and BaseException factory methods
   - CursorResult<T>: Cursor-based pagination result for large datasets
