@@ -1,5 +1,7 @@
 package com.aiagent.common.dto;
 
+import com.aiagent.common.exception.BaseException;
+import com.aiagent.common.exception.ErrorCode;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.time.OffsetDateTime;
@@ -60,5 +62,40 @@ public record Result<T>(
      */
     public static <T> Result<T> fail(int code, String message, Map<String, Object> metadata) {
         return new Result<>(false, code, message, null, metadata, OffsetDateTime.now());
+    }
+
+    /**
+     * Create an error response from an ErrorCode.
+     */
+    public static <T> Result<T> fail(ErrorCode errorCode) {
+        return new Result<>(false, errorCode.code(), errorCode.message(), null, null, OffsetDateTime.now());
+    }
+
+    /**
+     * Create an error response from an ErrorCode with custom message.
+     */
+    public static <T> Result<T> fail(ErrorCode errorCode, String message) {
+        return new Result<>(false, errorCode.code(), message, null, null, OffsetDateTime.now());
+    }
+
+    /**
+     * Create an error response from a BaseException.
+     */
+    public static <T> Result<T> fail(BaseException exception) {
+        return new Result<>(
+                false,
+                exception.getErrorCode().code(),
+                exception.getMessage(),
+                null,
+                exception.getContext().isEmpty() ? null : exception.getContext(),
+                OffsetDateTime.now()
+        );
+    }
+
+    /**
+     * Create a success response with data and metadata.
+     */
+    public static <T> Result<T> ok(T data, Map<String, Object> metadata) {
+        return new Result<>(true, 0, "success", data, metadata, OffsetDateTime.now());
     }
 }
