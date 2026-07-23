@@ -96,9 +96,9 @@ Task ID, Title, Version, Priority, Milestone, Owner, Status, Dependencies, Requi
 | TASK-0015 | Agent Lifecycle | M2 | P1 | DONE | TASK-0011 |
 | TASK-0016 | Event Bus | M2 | P1 | DONE | TASK-0012 |
 | TASK-0017 | Execution Loop | M2 | P0 | DONE | TASK-0013~0016 |
-| TASK-0018 | Agent Hooks | M2 | P2 | DOING | TASK-0017 |
-| TASK-0019 | Agent Registry | M2 | P1 | DOING | TASK-0017 |
-| TASK-0020 | Kernel Integration | M2 | P0 | TODO | TASK-0018, TASK-0019 |
+| TASK-0018 | Agent Hooks | M2 | P2 | DONE | TASK-0017 |
+| TASK-0019 | Agent Registry | M2 | P1 | DONE | TASK-0017 |
+| TASK-0020 | Kernel Integration | M2 | P0 | DONE | TASK-0018, TASK-0019 |
 
 ---
 
