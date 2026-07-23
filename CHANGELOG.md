@@ -19,6 +19,11 @@ Covers all releases, milestones, and significant changes from project inception.
 ## [Unreleased]
 
 ### Added
+- Code style enforcement (NODE-0010 / TASK-0005)
+  - .editorconfig: Cross-IDE formatting configuration (Java, XML, YAML, JSON, SQL, properties)
+  - CodeStyleValidator: Programmatic code style validation with StyleReport
+  - Naming convention validators: PascalCase, camelCase, UPPER_SNAKE_CASE
+  - Unit tests for CodeStyleValidator
 - API specification and exception handling (NODE-0008 / TASK-0009)
   - API_SPECIFICATION.md: Formal API specification document with response envelope, exception mapping, URL conventions
   - ApiResponse<T>: API-layer standard response wrapper with OpenAPI annotations
