@@ -19,6 +19,14 @@ Covers all releases, milestones, and significant changes from project inception.
 ## [Unreleased]
 
 ### Added
+- Exception framework (NODE-0006 / TASK-0007)
+  - ErrorResponse: Standardized API error response DTO with factory methods
+  - ValidationException: Field-level validation error support with FieldError record
+  - ExceptionAnalyzer: Exception analysis interface with severity, category, retryable analysis
+  - DefaultExceptionAnalyzer: Default implementation categorizing all framework exceptions
+  - Enhanced ErrorCode interface with name() method
+  - Added consolidationFailed factory method to MemoryException
+  - Comprehensive unit tests for all exception subclasses and new components
 - Logging system (NODE-0005 / TASK-0006)
   - LogContext: MDC-based structured logging context manager (requestId, traceId, agentId, sessionId)
   - LogMarkers: SLF4J markers for log categorization (SECURITY, AUDIT, AGENT, TOOL, WORKFLOW, MEMORY, MCP, PERFORMANCE, FATAL)
