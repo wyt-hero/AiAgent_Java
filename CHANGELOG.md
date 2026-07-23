@@ -19,6 +19,14 @@ Covers all releases, milestones, and significant changes from project inception.
 ## [Unreleased]
 
 ### Added
+- Common module (aiagent-common) implementation (NODE-0003 / TASK-0003)
+  - Exception hierarchy: ErrorCode, BaseException, AgentException, ToolException, PromptException, MemoryException, WorkflowException, McpException, KnowledgeException
+  - CommonErrorCode enum with 30+ error codes across 9 categories
+  - Unified response DTOs: Result<T>, PageResult<T>, PageRequest
+  - Annotations: @NonNull, @Nullable
+  - Utilities: StringUtils, CollectionUtils
+  - Constants: FrameworkConstants
+  - Unit tests for all components
 - Maven multi-module architecture with 11 modules (NODE-0002 / TASK-0002)
   - aiagent-common: Shared utilities and base types
   - aiagent-kernel: Core agent execution engine
