@@ -12,40 +12,23 @@
 
 # Purpose
 
-TASK_INDEX 是整个 AiAgent-Java 项目的任务中心。
-
-所有 AI（Qoder、Cursor、Claude Code、Copilot 等）必须以 TASK_INDEX 作为唯一任务入口。
-
-任何新的开发任务必须首先登记到 TASK_INDEX。
-
-禁止 AI 自行创建未登记任务。
+TASK_INDEX 是整个 AiAgent-Java 项目的任务中心。所有 AI 必须以 TASK_INDEX 作为唯一任务入口。任何新的开发任务必须首先登记到 TASK_INDEX。禁止 AI 自行创建未登记任务。
 
 ---
 
 # Principles
 
-遵循以下原则：
-
-1. Task First
-2. Dependency First
-3. Documentation First
-4. Architecture First
-5. Review Required
-6. Test Required
+1. Task First  2. Dependency First  3. Documentation First  4. Architecture First  5. Review Required  6. Test Required
 
 ---
 
 # Task Lifecycle
 
-所有任务必须经历以下生命周期：
-
 ```
 TODO → READY → DOING → REVIEW → TESTING → DONE → RELEASED
 ```
 
-任何任务不得跳过 REVIEW。
-
-任何核心模块不得跳过 TESTING。
+任何任务不得跳过 REVIEW。任何核心模块不得跳过 TESTING。
 
 ---
 
@@ -62,54 +45,19 @@ TODO → READY → DOING → REVIEW → TESTING → DONE → RELEASED
 
 # Task Metadata
 
-每个 Task 必须包含：
-
-- Task ID
-- Title
-- Version
-- Priority
-- Milestone
-- Owner
-- Status
-- Dependencies
-- Required Reading
-- Deliverables
-- Acceptance Criteria
-- Commit Message
-- Next Task
+Task ID, Title, Version, Priority, Milestone, Owner, Status, Dependencies, Required Reading, Deliverables, Acceptance Criteria, Commit Message, Next Task
 
 ---
 
 # Dependency Rules
 
-任何 Task 必须声明 Dependencies。
-
-示例：
-
-```
-TASK-0005
-  Dependencies: TASK-0001, TASK-0002, TASK-0003
-```
-
-如果依赖未完成：禁止执行。
+任何 Task 必须声明 Dependencies。如果依赖未完成：禁止执行。
 
 ---
 
 # Required Reading Rules
 
-任何 Task 必须声明 Required Reading。
-
-示例：
-
-```
-Required Reading:
-  - .ai/00_PROJECT/PROJECT.md
-  - .ai/01_ARCHITECTURE/SYSTEM_ARCHITECTURE.md
-  - .ai/02_RULES/JAVA_RULES.md
-  - .ai/02_RULES/DIRECTORY_RULES.md
-```
-
-如果 Required Reading 缺失：禁止继续开发。
+任何 Task 必须声明 Required Reading。如果 Required Reading 缺失：禁止继续开发。
 
 ---
 
@@ -141,64 +89,36 @@ Required Reading:
 | TASK-0008 | Unified Result | M1 | P1 | DONE | TASK-0003 |
 | TASK-0009 | API Specification | M1 | P1 | DONE | TASK-0004 |
 | TASK-0010 | ADR System | M1 | P2 | DONE | TASK-0001 |
+| TASK-0011 | Agent Context | M2 | P0 | DONE | M1 Complete |
+| TASK-0012 | Agent Interface | M2 | P0 | DONE | M1 Complete |
+| TASK-0013 | Agent Result | M2 | P0 | DONE | TASK-0011 |
+| TASK-0014 | Agent Config | M2 | P1 | DONE | TASK-0011 |
+| TASK-0015 | Agent Lifecycle | M2 | P1 | DONE | TASK-0011 |
+| TASK-0016 | Event Bus | M2 | P1 | DONE | TASK-0012 |
+| TASK-0017 | Execution Loop | M2 | P0 | READY | TASK-0013~0016 |
+| TASK-0018 | Agent Hooks | M2 | P2 | TODO | TASK-0017 |
+| TASK-0019 | Agent Registry | M2 | P1 | TODO | TASK-0017 |
+| TASK-0020 | Kernel Integration | M2 | P0 | TODO | TASK-0018, TASK-0019 |
 
 ---
 
 # AI Execution Rules
 
-AI 执行 Task 必须遵循以下流程：
-
 ```
-① 阅读 Required Reading
-        ↓
-② 检查 Dependencies
-        ↓
-③ 检查 Status
-        ↓
-④ 开始开发
-        ↓
-⑤ 更新文档
-        ↓
-⑥ 更新测试
-        ↓
-⑦ 更新 CHANGELOG
-        ↓
-⑧ 提交 Commit
-        ↓
-⑨ 更新 TASK_INDEX
+① 阅读 Required Reading → ② 检查 Dependencies → ③ 检查 Status → ④ 开始开发 → ⑤ 更新文档 → ⑥ 更新测试 → ⑦ 更新 CHANGELOG → ⑧ 提交 Commit → ⑨ 更新 TASK_INDEX
 ```
 
 ---
 
 # Forbidden
 
-禁止：
-
-- ❌ 跳过 Required Reading
-- ❌ 修改未声明模块
-- ❌ 修改 Architecture
-- ❌ 修改 API
-- ❌ 创建循环依赖
-- ❌ 修改其他 Milestone
-- ❌ 不更新文档
-- ❌ 不更新 TASK_INDEX
+❌ 跳过 Required Reading, ❌ 修改未声明模块, ❌ 修改 Architecture, ❌ 修改 API, ❌ 创建循环依赖, ❌ 修改其他 Milestone, ❌ 不更新文档, ❌ 不更新 TASK_INDEX
 
 ---
 
 # Completion Definition (Definition of Done)
 
-Task 完成必须满足：
-
-- ✓ Deliverables 完成
-- ✓ Java Compile
-- ✓ 单元测试通过
-- ✓ Markdown 更新
-- ✓ Mermaid 可渲染
-- ✓ Commit 完成
-- ✓ CHANGELOG 更新
-- ✓ TASK_INDEX 更新
-
-否则不得标记 DONE。
+✓ Deliverables 完成, ✓ Java Compile, ✓ 单元测试通过, ✓ Markdown 更新, ✓ Mermaid 可渲染, ✓ Commit 完成, ✓ CHANGELOG 更新, ✓ TASK_INDEX 更新
 
 ---
 
@@ -220,12 +140,4 @@ Task 完成必须满足：
 
 # Future
 
-后续将支持：
-
-- 自动生成 Task Graph
-- 自动生成 Mermaid Dependency Graph
-- GitHub Issue Mapping
-- GitHub Project Mapping
-- Jira Mapping
-- Azure DevOps Mapping
-- AI 自动规划下一任务
+自动生成 Task Graph, 自动生成 Mermaid Dependency Graph, GitHub Issue/Project Mapping, Jira/Azure DevOps Mapping, AI 自动规划下一任务
