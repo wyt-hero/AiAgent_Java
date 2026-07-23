@@ -1,5 +1,7 @@
 package com.aiagent.common.dto;
 
+import com.aiagent.common.exception.AgentException;
+import com.aiagent.common.exception.CommonErrorCode;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -72,6 +74,49 @@ class ResultTest {
             assertFalse(result.success());
             assertNotNull(result.metadata());
             assertEquals("abc-123", result.metadata().get("traceId"));
+        }
+
+        @Test
+        @DisplayName("should_ReturnErrorFromErrorCode_When_FailWithErrorCode")
+        void should_ReturnErrorFromErrorCode_When_FailWithErrorCode() {
+            Result<Object> result = Result.fail(CommonErrorCode.UNAUTHORIZED);
+
+            assertFalse(result.success());
+            assertEquals(20001, result.code());
+            assertEquals("Authentication required", result.message());
+            assertNull(result.data());
+        }
+
+        @Test
+        @DisplayName("should_ReturnErrorWithCustomMessage_When_FailWithErrorCodeAndMessage")
+        void should_ReturnErrorWithCustomMessage_When_FailWithErrorCodeAndMessage() {
+            Result<Object> result = Result.fail(CommonErrorCode.INVALID_ARGUMENT, "name is blank");
+
+            assertFalse(result.success());
+            assertEquals(10002, result.code());
+            assertEquals("name is blank", result.message());
+        }
+
+        @Test
+        @DisplayName("should_ReturnErrorFromException_When_FailWithBaseException")
+        void should_ReturnErrorFromException_When_FailWithBaseException() {
+            AgentException ex = AgentException.notFound("agent-001");
+            Result<Object> result = Result.fail(ex);
+
+            assertFalse(result.success());
+            assertEquals(30002, result.code());
+            assertTrue(result.message().contains("agent-001"));
+        }
+
+        @Test
+        @DisplayName("should_ReturnSuccessWithMetadata_When_OkWithDataAndMetadata")
+        void should_ReturnSuccessWithMetadata_When_OkWithDataAndMetadata() {
+            Map<String, Object> metadata = Map.of("count", 5);
+            Result<String> result = Result.ok("data", metadata);
+
+            assertTrue(result.success());
+            assertEquals("data", result.data());
+            assertEquals(5, result.metadata().get("count"));
         }
     }
 }
