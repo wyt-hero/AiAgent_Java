@@ -136,7 +136,7 @@ Required Reading:
 | TASK-0003 | Common Module | M1 | P0 | DONE | TASK-0002 |
 | TASK-0004 | Dependency Management | M1 | P0 | DONE | TASK-0002 |
 | TASK-0005 | Code Style | M1 | P1 | TODO | TASK-0002 |
-| TASK-0006 | Logging System | M1 | P1 | TODO | TASK-0003 |
+| TASK-0006 | Logging System | M1 | P1 | DONE | TASK-0003 |
 | TASK-0007 | Exception Framework | M1 | P1 | TODO | TASK-0003 |
 | TASK-0008 | Unified Result | M1 | P1 | TODO | TASK-0003 |
 | TASK-0009 | API Specification | M1 | P1 | TODO | TASK-0004 |
