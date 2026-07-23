@@ -296,11 +296,11 @@ Commit
 | NODE-0001 | Initialize AIOS | P0 | DONE | None | NODE-0002, NODE-0009, NODE-0010 |
 | NODE-0002 | Maven Multi Module | P0 | DONE | NODE-0001 | NODE-0003, NODE-0004 |
 | NODE-0003 | Common Module | P0 | DONE | NODE-0002 | NODE-0005, NODE-0006, NODE-0007 |
-| NODE-0004 | Dependency Management | P0 | READY | NODE-0002 | NODE-0008 |
+| NODE-0004 | Dependency Management | P0 | DONE | NODE-0002 | NODE-0008 |
 | NODE-0005 | Logging System | P1 | READY | NODE-0003 | M1 Complete |
 | NODE-0006 | Exception Framework | P1 | READY | NODE-0003 | M1 Complete |
 | NODE-0007 | Unified Result | P1 | READY | NODE-0003 | M1 Complete |
-| NODE-0008 | API Specification | P1 | PLANNED | NODE-0004 | M1 Complete |
+| NODE-0008 | API Specification | P1 | READY | NODE-0004 | M1 Complete |
 | NODE-0009 | ADR System | P2 | READY | NODE-0001 | M1 Complete |
 | NODE-0010 | Code Style | P1 | READY | NODE-0001 | M1 Complete |
 
@@ -308,11 +308,11 @@ Commit
 
 # Current Status
 
-**Active Node:** NODE-0004 (Dependency Management), NODE-0005 (Logging System), NODE-0006 (Exception Framework), NODE-0007 (Unified Result), NODE-0009 (ADR System), NODE-0010 (Code Style)
+**Active Node:** NODE-0005 (Logging System), NODE-0006 (Exception Framework), NODE-0007 (Unified Result), NODE-0008 (API Specification), NODE-0009 (ADR System), NODE-0010 (Code Style)
 
-**Ready Nodes:** NODE-0004, NODE-0005, NODE-0006, NODE-0007, NODE-0009, NODE-0010
+**Ready Nodes:** NODE-0005, NODE-0006, NODE-0007, NODE-0008, NODE-0009, NODE-0010
 
-**Blocked Nodes:** NODE-0008 (等待 NODE-0004 完成)
+**Blocked Nodes:** None
 
 ---
 

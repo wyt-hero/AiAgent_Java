@@ -19,6 +19,12 @@ Covers all releases, milestones, and significant changes from project inception.
 ## [Unreleased]
 
 ### Added
+- Dependency management consolidation (NODE-0004 / TASK-0004)
+  - Added jackson-annotations, ollama4j to parent POM dependencyManagement
+  - Added PostgreSQL + MyBatis-Plus + Redisson to aiagent-memory module
+  - Added PostgreSQL + MyBatis-Plus to aiagent-knowledge module
+  - Added ollama4j to aiagent-kernel module
+  - Created DEPENDENCIES.md as dependency center document
 - Common module (aiagent-common) implementation (NODE-0003 / TASK-0003)
   - Exception hierarchy: ErrorCode, BaseException, AgentException, ToolException, PromptException, MemoryException, WorkflowException, McpException, KnowledgeException
   - CommonErrorCode enum with 30+ error codes across 9 categories
