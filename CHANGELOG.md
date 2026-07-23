@@ -19,64 +19,16 @@ Covers all releases, milestones, and significant changes from project inception.
 ## [Unreleased]
 
 ### Added
-- Code style enforcement (NODE-0010 / TASK-0005)
-  - .editorconfig: Cross-IDE formatting configuration (Java, XML, YAML, JSON, SQL, properties)
-  - CodeStyleValidator: Programmatic code style validation with StyleReport
-  - Naming convention validators: PascalCase, camelCase, UPPER_SNAKE_CASE
-  - Unit tests for CodeStyleValidator
-- API specification and exception handling (NODE-0008 / TASK-0009)
-  - API_SPECIFICATION.md: Formal API specification document with response envelope, exception mapping, URL conventions
-  - ApiResponse<T>: API-layer standard response wrapper with OpenAPI annotations
-  - PageResponse<T>: API-layer paginated response with pagination metadata
-  - GlobalExceptionHandler: @ControllerAdvice mapping all framework exceptions to HTTP responses
-  - Comprehensive unit tests for all API components
-- Unified result framework (NODE-0007 / TASK-0008)
-  - Enhanced Result<T> with ErrorCode and BaseException factory methods
-  - CursorResult<T>: Cursor-based pagination result for large datasets
-  - BatchResult<T>: Batch operation result with success/error tracking and BatchError record
-  - Comprehensive unit tests for all result types
-- Exception framework (NODE-0006 / TASK-0007)
-  - ErrorResponse: Standardized API error response DTO with factory methods
-  - ValidationException: Field-level validation error support with FieldError record
-  - ExceptionAnalyzer: Exception analysis interface with severity, category, retryable analysis
-  - DefaultExceptionAnalyzer: Default implementation categorizing all framework exceptions
-  - Enhanced ErrorCode interface with name() method
-  - Added consolidationFailed factory method to MemoryException
-  - Comprehensive unit tests for all exception subclasses and new components
-- Logging system (NODE-0005 / TASK-0006)
-  - LogContext: MDC-based structured logging context manager (requestId, traceId, agentId, sessionId)
-  - LogMarkers: SLF4J markers for log categorization (SECURITY, AUDIT, AGENT, TOOL, WORKFLOW, MEMORY, MCP, PERFORMANCE, FATAL)
-  - logback-spring.xml: Default logging configuration with structured format, rolling files, security/audit separation
-  - Unit tests for LogContext and LogMarkers
-- Dependency management consolidation (NODE-0004 / TASK-0004)
-  - Added jackson-annotations, ollama4j to parent POM dependencyManagement
-  - Added PostgreSQL + MyBatis-Plus + Redisson to aiagent-memory module
-  - Added PostgreSQL + MyBatis-Plus to aiagent-knowledge module
-  - Added ollama4j to aiagent-kernel module
-  - Created DEPENDENCIES.md as dependency center document
-- Common module (aiagent-common) implementation (NODE-0003 / TASK-0003)
-  - Exception hierarchy: ErrorCode, BaseException, AgentException, ToolException, PromptException, MemoryException, WorkflowException, McpException, KnowledgeException
-  - CommonErrorCode enum with 30+ error codes across 9 categories
-  - Unified response DTOs: Result<T>, PageResult<T>, PageRequest
-  - Annotations: @NonNull, @Nullable
-  - Utilities: StringUtils, CollectionUtils
-  - Constants: FrameworkConstants
-  - Unit tests for all components
-- Maven multi-module architecture with 11 modules (NODE-0002 / TASK-0002)
-  - aiagent-common: Shared utilities and base types
-  - aiagent-kernel: Core agent execution engine
-  - aiagent-prompt: Prompt construction and pipeline
-  - aiagent-memory: Multi-layer memory system
-  - aiagent-tool: Tool registration and invocation
-  - aiagent-workflow: Graph-based workflow orchestration
-  - aiagent-persona: Agent persona management
-  - aiagent-knowledge: Knowledge base and RAG pipeline
-  - aiagent-mcp: Model Context Protocol integration
-  - aiagent-api: REST and WebSocket API surface
-  - aiagent-boot: Spring Boot entry point
-- Internal module dependency management in parent POM
-- TASK_INDEX as project task center
-- EXECUTION_GRAPH as single source of truth for project execution
+- ADR system (NODE-0009 / TASK-0010): ADR template, index, ADR-0001, AdrRecord, AdrStatus, AdrRegistry, tests
+- Code style enforcement (NODE-0010 / TASK-0005): .editorconfig, CodeStyleValidator, naming validators, tests
+- API specification (NODE-0008 / TASK-0009): API_SPECIFICATION.md, ApiResponse, PageResponse, GlobalExceptionHandler, tests
+- Unified result framework (NODE-0007 / TASK-0008): Enhanced Result, CursorResult, BatchResult, tests
+- Exception framework (NODE-0006 / TASK-0007): ErrorResponse, ValidationException, ExceptionAnalyzer, tests
+- Logging system (NODE-0005 / TASK-0006): LogContext, LogMarkers, logback-spring.xml, tests
+- Dependency management (NODE-0004 / TASK-0004): Consolidated dependencies, DEPENDENCIES.md
+- Common module (NODE-0003 / TASK-0003): Exception hierarchy, ErrorCode, DTOs, utilities, tests
+- Maven multi-module (NODE-0002 / TASK-0002): 11 modules
+- AIOS specification (NODE-0001 / TASK-0001): AIOS framework, rules, architecture docs
 
 ---
 
@@ -84,51 +36,6 @@ Covers all releases, milestones, and significant changes from project inception.
 
 ### Added
 - Initial project creation
-- Repository setup
 - AIOS v1.0.0 specification framework
-- Project structure initialization (TASK-0001)
-- AI Operating System (AIOS) specification (TASK-0001)
 - Apache License 2.0
 - Maven parent POM configuration
-- Docker Compose development environment skeleton
-- Development rules and conventions documentation
-
----
-
-## Format Guide
-
-Each release entry follows this structure:
-
-```markdown
-## [version] - YYYY-MM-DD
-
-### Added
-- New features
-
-### Changed
-- Changes to existing functionality
-
-### Deprecated
-- Soon-to-be removed features
-
-### Removed
-- Removed features
-
-### Fixed
-- Bug fixes
-
-### Security
-- Vulnerability fixes
-```
-
-## Best Practices
-
-- Update CHANGELOG.md with every pull request
-- Reference task IDs (e.g., TASK-0001) in entries
-- Keep entries concise but informative
-
-## Forbidden
-
-- Accumulating changes without updating the changelog
-- Writing vague entries like "misc fixes"
-- Removing or altering historical entries
