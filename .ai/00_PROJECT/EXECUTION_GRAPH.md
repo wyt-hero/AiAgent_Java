@@ -302,15 +302,15 @@ Commit
 | NODE-0007 | Unified Result | P1 | DONE | NODE-0003 | M1 Complete |
 | NODE-0008 | API Specification | P1 | DONE | NODE-0004 | M1 Complete |
 | NODE-0009 | ADR System | P2 | READY | NODE-0001 | M1 Complete |
-| NODE-0010 | Code Style | P1 | READY | NODE-0001 | M1 Complete |
+| NODE-0010 | Code Style | P1 | DONE | NODE-0001 | M1 Complete |
 
 ---
 
 # Current Status
 
-**Active Node:** NODE-0009 (ADR System), NODE-0010 (Code Style)
+**Active Node:** NODE-0009 (ADR System)
 
-**Ready Nodes:** NODE-0009, NODE-0010
+**Ready Nodes:** NODE-0009
 
 **Blocked Nodes:** None
 
