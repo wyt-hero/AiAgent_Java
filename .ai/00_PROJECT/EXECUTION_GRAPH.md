@@ -49,36 +49,17 @@ Execution Graph 遵循：
 Project → Milestone → Execution Node → Deliverables → Review → Release
 ```
 
-禁止直接开发 Java。
-
-必须先满足 Execution Node。
+禁止直接开发 Java。必须先满足 Execution Node。
 
 ---
 
 # Execution Node
 
-Execution Node 表示一个可执行节点。
-
-每个节点必须包含：
-
-- Node ID
-- Title
-- Milestone
-- Priority
-- Dependencies
-- Required Reading
-- Deliverables
-- Acceptance
-- Status
-- Next Nodes
-- Owner
-- Commit Message
+Execution Node 表示一个可执行节点。每个节点必须包含：Node ID, Title, Milestone, Priority, Dependencies, Required Reading, Deliverables, Acceptance, Status, Next Nodes, Owner, Commit Message
 
 ---
 
 # Node Status
-
-节点状态：
 
 ```
 PLANNED → READY → RUNNING → REVIEW → TESTING → DONE → RELEASED
@@ -90,61 +71,27 @@ PLANNED → READY → RUNNING → REVIEW → TESTING → DONE → RELEASED
 
 # Dependency Rules
 
-节点必须声明 Dependencies。
-
-示例：
-
-```
-NODE-003
-  Dependencies: NODE-001, NODE-002
-```
-
-只有全部完成，节点才能进入 READY。
+节点必须声明 Dependencies。只有全部完成，节点才能进入 READY。
 
 ---
 
 # Parallel Rules
 
-允许多个节点同时执行。
-
-例如：
-
-```
-                NODE-002
-               /
-NODE-001 ─────
-               \
-                NODE-003
-```
-
-NODE-002 与 NODE-003 互不依赖，允许 Parallel Execution。
+允许多个节点同时执行。NODE-002 与 NODE-003 互不依赖，允许 Parallel Execution。
 
 ---
 
 # Merge Rules
 
-多个节点可以 Merge。
-
-例如：
-
-```
-NODE-004 ──┐
-           ├──→ NODE-006
-NODE-005 ──┘
-```
-
-NODE-006 必须等待 NODE-004 与 NODE-005 全部完成。
+多个节点可以 Merge。NODE-006 必须等待 NODE-004 与 NODE-005 全部完成。
 
 ---
 
 # Execution DAG
 
-项目整体执行 DAG：
-
 ```mermaid
 graph TB
     PROJECT[AiAgent-Java] --> M1[Milestone-001: Project Bootstrap]
-
     M1 --> N001[NODE-0001: Initialize AIOS]
     N001 --> N002[NODE-0002: Maven Multi Module]
     N002 --> N003[NODE-0003: Common Module]
@@ -155,120 +102,52 @@ graph TB
     N004 --> N008[NODE-0008: API Specification]
     N001 --> N009[NODE-0009: ADR System]
     N001 --> N010[NODE-0010: Code Style]
-
     N005 --> MERGE1{M1 Complete}
     N006 --> MERGE1
     N007 --> MERGE1
     N008 --> MERGE1
     N009 --> MERGE1
     N010 --> MERGE1
-
     MERGE1 --> M2[Milestone-002: Agent Kernel]
 ```
 
-Execution Graph 必须保持 DAG。
-
-禁止循环。
+Execution Graph 必须保持 DAG。禁止循环。
 
 ---
 
 # Required Reading Rules
 
-任何 Node 必须声明 Required Reading。
-
-示例：
-
-```
-Required Reading:
-  - .ai/00_PROJECT/PROJECT.md
-  - .ai/01_ARCHITECTURE/SYSTEM_ARCHITECTURE.md
-  - .ai/02_RULES/JAVA_RULES.md
-  - .ai/02_RULES/DIRECTORY_RULES.md
-```
-
-如果 Required Reading 不存在，禁止执行。
+任何 Node 必须声明 Required Reading。如果 Required Reading 不存在，禁止执行。
 
 ---
 
 # Deliverables
 
-每个 Node 必须输出：
-
-- Markdown
-- Java
-- SQL
-- Mermaid
-- Test
-- Commit
-
-不得输出部分成果。
+每个 Node 必须输出：Markdown, Java, SQL, Mermaid, Test, Commit。不得输出部分成果。
 
 ---
 
 # Completion Definition
 
-节点完成必须满足：
-
-- ✓ Deliverables 完成
-- ✓ Compile 通过
-- ✓ Unit Test 通过
-- ✓ Review 通过
-- ✓ Documentation 更新
-- ✓ Mermaid 可渲染
-- ✓ Changelog 更新
-
-否则 Status 不得标记 DONE。
+节点完成必须满足：✓ Deliverables 完成, ✓ Compile 通过, ✓ Unit Test 通过, ✓ Review 通过, ✓ Documentation 更新, ✓ Mermaid 可渲染, ✓ Changelog 更新
 
 ---
 
 # Forbidden
 
-禁止：
-
-- ❌ 跳过 Dependency
-- ❌ 跳过 Required Reading
-- ❌ 修改 Architecture
-- ❌ 修改 Module Boundary
-- ❌ 创建 Circular Dependency
-- ❌ 修改其他 Milestone
-- ❌ 直接生成 Java
-- ❌ 跳过 Documentation
+禁止：❌ 跳过 Dependency, ❌ 跳过 Required Reading, ❌ 修改 Architecture, ❌ 修改 Module Boundary, ❌ 创建 Circular Dependency, ❌ 修改其他 Milestone, ❌ 直接生成 Java, ❌ 跳过 Documentation
 
 ---
 
 # AI Execution Flow
 
 ```
-AI 启动
-    ↓
-读取 PROJECT
-    ↓
-读取 Architecture
-    ↓
-读取 Rules
-    ↓
-读取 Execution Graph
-    ↓
-找到 READY Node
-    ↓
-读取 Required Reading
-    ↓
-执行
-    ↓
-更新 Status
-    ↓
-更新 History
-    ↓
-Commit
-    ↓
-等待 Next Node
+AI 启动 → 读取 PROJECT → 读取 Architecture → 读取 Rules → 读取 Execution Graph → 找到 READY Node → 读取 Required Reading → 执行 → 更新 Status → 更新 History → Commit → 等待 Next Node
 ```
 
 ---
 
 # Node Metadata
-
-每个 Node 必须包含：
 
 | Field | Description |
 |-------|-------------|
@@ -310,7 +189,9 @@ Commit
 
 **Active Node:** None
 
-**Ready Nodes:** None
+**Ready Nodes:** NODE-0017
+
+**Running Nodes:** None
 
 **Milestone-001 Status:** COMPLETE (10/10 nodes done)
 
@@ -318,17 +199,23 @@ Commit
 
 ---
 
+# Milestone-002 Execution Nodes
+
+| Node | Title | Priority | Status | Dependencies | Next Nodes |
+|------|-------|----------|--------|--------------|------------|
+| NODE-0011 | Agent Context | P0 | DONE | M1 Complete | NODE-0013, NODE-0014, NODE-0015 |
+| NODE-0012 | Agent Interface | P0 | DONE | M1 Complete | NODE-0016 |
+| NODE-0013 | Agent Result | P0 | DONE | NODE-0011 | NODE-0017 |
+| NODE-0014 | Agent Config | P1 | DONE | NODE-0011 | NODE-0017 |
+| NODE-0015 | Agent Lifecycle | P1 | DONE | NODE-0011 | NODE-0017 |
+| NODE-0016 | Event Bus | P1 | DONE | NODE-0012 | NODE-0017 |
+| NODE-0017 | Execution Loop | P0 | PLANNED | NODE-0013~0016 | NODE-0018, NODE-0019 |
+| NODE-0018 | Agent Hooks | P2 | PLANNED | NODE-0017 | NODE-0020 |
+| NODE-0019 | Agent Registry | P1 | PLANNED | NODE-0017 | NODE-0020 |
+| NODE-0020 | Kernel Integration | P0 | PLANNED | NODE-0018, NODE-0019 | M2 Complete |
+
+---
+
 # Future
 
-Execution Graph 将支持：
-
-- GitHub Project
-- GitHub Issues
-- Mermaid DAG
-- Jira
-- Azure DevOps
-- Automatic Planning
-- Automatic Dependency Detection
-- Automatic Task Scheduling
-- Automatic Merge
-- Automatic Progress Dashboard
+Execution Graph 将支持：GitHub Project, GitHub Issues, Mermaid DAG, Jira, Azure DevOps, Automatic Planning, Automatic Dependency Detection, Automatic Task Scheduling, Automatic Merge, Automatic Progress Dashboard
