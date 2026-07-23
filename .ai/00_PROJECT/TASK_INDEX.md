@@ -140,7 +140,7 @@ Required Reading:
 | TASK-0007 | Exception Framework | M1 | P1 | DONE | TASK-0003 |
 | TASK-0008 | Unified Result | M1 | P1 | DONE | TASK-0003 |
 | TASK-0009 | API Specification | M1 | P1 | DONE | TASK-0004 |
-| TASK-0010 | ADR System | M1 | P2 | TODO | TASK-0001 |
+| TASK-0010 | ADR System | M1 | P2 | DONE | TASK-0001 |
 
 ---
 
