@@ -308,13 +308,15 @@ Commit
 
 # Current Status
 
-**Active Node:** NODE-0018, NODE-0019
+**Active Node:** None
 
 **Ready Nodes:** None
 
-**Running Nodes:** NODE-0018, NODE-0019
+**Running Nodes:** None
 
 **Milestone-001 Status:** COMPLETE (10/10 nodes done)
+
+**Milestone-002 Status:** COMPLETE (10/10 nodes done)
 
 **Blocked Nodes:** None
 
@@ -331,9 +333,9 @@ Commit
 | NODE-0015 | Agent Lifecycle | P1 | DONE | NODE-0011 | NODE-0017 |
 | NODE-0016 | Event Bus | P1 | DONE | NODE-0012 | NODE-0017 |
 | NODE-0017 | Execution Loop | P0 | DONE | NODE-0013~0016 | NODE-0018, NODE-0019 |
-| NODE-0018 | Agent Hooks | P2 | RUNNING | NODE-0017 | NODE-0020 |
-| NODE-0019 | Agent Registry | P1 | RUNNING | NODE-0017 | NODE-0020 |
-| NODE-0020 | Kernel Integration | P0 | PLANNED | NODE-0018, NODE-0019 | M2 Complete |
+| NODE-0018 | Agent Hooks | P2 | DONE | NODE-0017 | NODE-0020 |
+| NODE-0019 | Agent Registry | P1 | DONE | NODE-0017 | NODE-0020 |
+| NODE-0020 | Kernel Integration | P0 | DONE | NODE-0018, NODE-0019 | M2 Complete |
 
 ---
 
