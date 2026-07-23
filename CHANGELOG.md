@@ -19,12 +19,21 @@ Covers all releases, milestones, and significant changes from project inception.
 ## [Unreleased]
 
 ### Added
-- Project structure initialization (TASK-0001)
-- AI Operating System (AIOS) specification (TASK-0001)
-- Apache License 2.0
-- Maven parent POM configuration
-- Docker Compose development environment skeleton
-- Development rules and conventions documentation
+- Maven multi-module architecture with 11 modules (NODE-0002 / TASK-0002)
+  - aiagent-common: Shared utilities and base types
+  - aiagent-kernel: Core agent execution engine
+  - aiagent-prompt: Prompt construction and pipeline
+  - aiagent-memory: Multi-layer memory system
+  - aiagent-tool: Tool registration and invocation
+  - aiagent-workflow: Graph-based workflow orchestration
+  - aiagent-persona: Agent persona management
+  - aiagent-knowledge: Knowledge base and RAG pipeline
+  - aiagent-mcp: Model Context Protocol integration
+  - aiagent-api: REST and WebSocket API surface
+  - aiagent-boot: Spring Boot entry point
+- Internal module dependency management in parent POM
+- TASK_INDEX as project task center
+- EXECUTION_GRAPH as single source of truth for project execution
 
 ---
 
@@ -34,6 +43,12 @@ Covers all releases, milestones, and significant changes from project inception.
 - Initial project creation
 - Repository setup
 - AIOS v1.0.0 specification framework
+- Project structure initialization (TASK-0001)
+- AI Operating System (AIOS) specification (TASK-0001)
+- Apache License 2.0
+- Maven parent POM configuration
+- Docker Compose development environment skeleton
+- Development rules and conventions documentation
 
 ---
 

@@ -132,7 +132,7 @@ Required Reading:
 | Task | Title | Milestone | Priority | Status | Dependencies |
 |------|-------|-----------|----------|--------|--------------|
 | TASK-0001 | Initialize AIOS | M1 | P0 | DONE | None |
-| TASK-0002 | Maven Multi Module | M1 | P0 | TODO | TASK-0001 |
+| TASK-0002 | Maven Multi Module | M1 | P0 | DONE | TASK-0001 |
 | TASK-0003 | Common Module | M1 | P0 | TODO | TASK-0002 |
 | TASK-0004 | Dependency Management | M1 | P0 | TODO | TASK-0002 |
 | TASK-0005 | Code Style | M1 | P1 | TODO | TASK-0002 |
