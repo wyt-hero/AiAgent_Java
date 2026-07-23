@@ -19,6 +19,11 @@ Covers all releases, milestones, and significant changes from project inception.
 ## [Unreleased]
 
 ### Added
+- Unified result framework (NODE-0007 / TASK-0008)
+  - Enhanced Result<T> with ErrorCode and BaseException factory methods
+  - CursorResult<T>: Cursor-based pagination result for large datasets
+  - BatchResult<T>: Batch operation result with success/error tracking and BatchError record
+  - Comprehensive unit tests for all result types
 - Exception framework (NODE-0006 / TASK-0007)
   - ErrorResponse: Standardized API error response DTO with factory methods
   - ValidationException: Field-level validation error support with FieldError record
