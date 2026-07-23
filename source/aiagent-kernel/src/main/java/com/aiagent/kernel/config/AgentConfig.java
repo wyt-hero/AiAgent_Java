@@ -1,4 +1,4 @@
-package com.aiagent.kernel.Config;
+package com.aiagent.kernel.config;
 import com.aiagent.kernel.context.AgentState;
 import java.time.Duration;
 import java.util.Map;
